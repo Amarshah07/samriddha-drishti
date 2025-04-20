@@ -1,103 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Samriddha Drishti - AI-powered glasses for the visually impaired. Empowering independence, confidence, and accessibility.">
-    <title>Samriddha Drishti</title>
-    <link rel="stylesheet" href="style.css"> <!-- External stylesheet link -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7f6;
-            color: #333;
-        }
-
-        header {
-            background-color: #007bff;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 3em;
-        }
-
-        section {
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .intro-text {
-            font-size: 1.2em;
-            line-height: 1.6;
-            color: #444;
-            text-align: center;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #28a745;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            margin-top: 20px;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 20px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-
-        footer p {
-            margin: 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samriddha Drishti</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      color: #333;
+    }
+    header {
+      background: #1e3a8a;
+      padding: 20px 0;
+      text-align: center;
+      color: white;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    header p {
+      margin-top: 10px;
+      font-size: 1.2em;
+    }
+    nav {
+      background: #374151;
+      text-align: center;
+      padding: 15px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      margin: 0 15px;
+      font-size: 1em;
+      font-weight: bold;
+    }
+    nav a:hover {
+      background-color: #3b82f6;
+      border-radius: 5px;
+    }
+    .hero {
+      background: url('https://via.placeholder.com/1600x600') no-repeat center center;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .hero h2 {
+      font-size: 3em;
+    }
+    .hero p {
+      font-size: 1.2em;
+      max-width: 800px;
+      margin: 20px auto;
+    }
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .section h2 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+    }
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .feature-card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      width: 250px;
+    }
+    .feature-card h3 {
+      font-size: 1.5em;
+    }
+    .feature-card p {
+      font-size: 1em;
+      color: #555;
+    }
+    footer {
+      background: #1e3a8a;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+  </style>
 </head>
-
 <body>
-    <!-- Header Section -->
-    <header>
-        <h1>Samriddha Drishti</h1>
-        <p>Empowering the visually impaired with AI-powered assistance</p>
-    </header>
 
-    <!-- Main Content Section -->
-    <section>
-        <div class="intro-text">
-            <h2>What is Samriddha Drishti?</h2>
-            <p>Samriddha Drishti is an AI-powered solution designed to assist visually impaired individuals through smart glasses. The glasses use advanced technologies like object detection, face recognition, and scene description to help users navigate and interact with their surroundings more effectively.</p>
-            
-            <h3>Features:</h3>
-            <ul>
-                <li>Object Detection</li>
-                <li>Face Recognition</li>
-                <li>Text Reading (OCR)</li>
-                <li>Voice Assistance</li>
-                <li>Navigation Support</li>
-            </ul>
+  <header>
+    <h1>Samriddha Drishti</h1>
+    <p>AI Glasses for the Visually Impaired</p>
+  </header>
 
-            <a href="https://github.com/amarshah" class="cta-button">Learn More on GitHub</a>
-        </div>
-    </section>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#features">Features</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2025 Samriddha Drishti | Created by Amar Shah</p>
-    </footer>
+  <div class="hero">
+    <h2>Empowering the Visually Impaired with AI Technology</h2>
+    <p>Samriddha Drishti helps individuals with visual impairments by providing real-time object detection, text reading, and navigation assistance using smart AI-powered glasses.</p>
+  </div>
+
+  <div class="section" id="features">
+    <h2>Key Features</h2>
+    <div class="features">
+      <div class="feature-card">
+        <h3>Object Detection</h3>
+        <p>Detect objects in the environment in real-time, enabling visually impaired users to interact with their surroundings.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Face Recognition</h3>
+        <p>Recognize familiar faces to help users interact confidently in social settings.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Text Reading</h3>
+        <p>Read printed text (OCR) aloud, allowing users to understand documents, menus, and signs independently.</p>
+      </div>
+      <div class="feature-card">
+        <h3>QR Code Detection</h3>
+        <p>Scan QR codes for additional information, enhancing the accessibility of digital content.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="how-it-works">
+    <h2>How It Works</h2>
+    <p>Samriddha Drishti uses advanced computer vision and AI models like YOLOv5 and TensorFlow Lite to process visual information and provide real-time feedback through voice guidance. The device is lightweight, affordable, and designed for ease of use in everyday life.</p>
+  </div>
+
+  <div class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>If you have any questions or want to learn more about Samriddha Drishti, feel free to reach out to us.</p>
+    <p>Email: samriddhadrishti@aiassist.org</p>
+    <p>Phone: +91-9876543210</p>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Samriddha Drishti. All rights reserved.</p>
+  </footer>
+
 </body>
-
 </html>
