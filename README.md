@@ -1,0 +1,2 @@
+# samriddha-drishti
+Samriddha Drishti is an AI-powered wearable device for the visually impaired. It features real-time object detection, text reading (OCR), face recognition, QR scanning, and voice-guided navigation. Built using Python, YOLOv5, and TTS, it empowers users with smart, affordable assistive technology.
