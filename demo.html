@@ -3,103 +3,162 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Samriddha Drishti – Demo</title>
+  <title>Samriddha Drishti – Live Demo</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;700&display=swap">
   <style>
     body {
       font-family: 'Outfit', sans-serif;
-      background: #f9f9f9;
       margin: 0;
       padding: 0;
+      background: linear-gradient(135deg, #f8fafc, #eef2f7);
+      color: #1d3557;
     }
     header {
-      background: #0d1b2a;
+      background: linear-gradient(135deg, #0d1b2a, #1d3557);
       color: white;
-      padding: 40px 20px;
+      padding: 60px 20px;
       text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
     header h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
     }
     section {
-      padding: 40px 20px;
+      padding: 60px 20px;
       max-width: 1200px;
       margin: auto;
     }
     h2 {
-      color: #1d3557;
+      font-size: 2rem;
       margin-bottom: 20px;
-    }
-    .video-container, .model-container {
-      margin-bottom: 40px;
       text-align: center;
+      position: relative;
     }
-    iframe, model-viewer {
+    h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #457b9d;
+      margin: 10px auto;
+      border-radius: 3px;
+    }
+    .grid {
+      display: grid;
+      gap: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      align-items: start;
+      margin-bottom: 60px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    model-viewer, iframe {
       width: 100%;
-      max-width: 800px;
-      height: 450px;
+      height: 400px;
       border: none;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.15);
     }
     a.button {
       display: inline-block;
-      padding: 12px 25px;
+      padding: 14px 32px;
       background: #1d3557;
       color: white;
       text-decoration: none;
-      border-radius: 5px;
-      margin-top: 20px;
+      border-radius: 50px;
+      margin-top: 30px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    a.button:hover {
+      background: #457b9d;
+    }
+    footer {
+      background: #0d1b2a;
+      color: #ddd;
+      text-align: center;
+      padding: 30px;
+      margin-top: 50px;
+      font-size: 0.9rem;
     }
   </style>
-  <!-- model-viewer library for 3D models -->
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
 
 <header>
-  <h1>Samriddha Drishti Demo</h1>
-  <p>Experience the vision of accessibility in action.</p>
+  <h1>Samriddha Drishti – Demo Experience</h1>
+  <p>Empowering vision, independence, and accessibility through AI.</p>
 </header>
 
 <section>
-  <h2>3D Model of AI Glasses</h2>
-  <div class="model-container">
-<model-viewer src="black_glasses.glb" 
-              alt="3D Model" 
-              auto-rotate 
-              camera-controls 
-              ar 
-              ar-modes="webxr scene-viewer quick-look">
-</model-viewer>
+  <h2>3D Models</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>AI Glasses</h3>
+      <model-viewer src="black_glasses.glb" 
+                    alt="3D Model of Glasses" 
+                    auto-rotate 
+                    camera-controls 
+                    ar 
+                    ar-modes="webxr scene-viewer quick-look">
+      </model-viewer>
     </div>
+    <div class="card">
+      <h3>Smart Blind Stick (Prototype)</h3>
+      <model-viewer src="black_stick.glb" 
+                    alt="3D Model of Smart Blind Stick" 
+                    auto-rotate 
+                    camera-controls 
+                    ar 
+                    ar-modes="webxr scene-viewer quick-look">
+      </model-viewer>
+    </div>
+  </div>
 
-  <h2>3D Model of Smart Blind Stick</h2>
-  <div class="model-container">
-<model-viewer src="black_stick.glb" 
-              alt="3D Model" 
-              auto-rotate 
-              camera-controls 
-              ar 
-              ar-modes="webxr scene-viewer quick-look">
-</model-viewer>  </div>
-
-  <h2>Demo Video</h2>
-  <div class="video-container">
-    <iframe width="560" height="315" 
-        src="https://www.youtube.com/embed/Iu3f3VCvmN8" 
-        title="Samriddha Drishti Demo Video" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-</iframe>
-
+  <h2>Demo Videos</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Main Demo</h3>
+      <iframe src="https://www.youtube.com/embed/Iu3f3VCvmN8" 
+              title="Samriddha Drishti Main Demo" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+      </iframe>
+    </div>
+    <div class="card">
+      <h3>Additional Demo</h3>
+      <iframe src="https://www.youtube.com/embed/your-second-video-id" 
+              title="Samriddha Drishti Additional Demo" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+      </iframe>
+    </div>
   </div>
 
   <div style="text-align:center;">
-    <a href="index.html" class="button">Back to Home</a>
+    <a href="index.html" class="button">⬅ Back to Home</a>
   </div>
 </section>
+
+<footer>
+  <p>Samriddha Drishti – Designed to empower the visually impaired with AI-powered accessibility.</p>
+</footer>
 
 </body>
 </html>
