@@ -3,12 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Samriddha Drishti Demo</title>
+  <title>Samriddha Drishti – Demo</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;700&display=swap">
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #0d1b2a;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5rem;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    h2 {
+      color: #1d3557;
+      margin-bottom: 20px;
+    }
+    .video-container, .model-container {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    iframe, model-viewer {
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    a.button {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #1d3557;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+  </style>
+  <!-- model-viewer library for 3D models -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
-  <h1>Welcome to the Samriddha Drishti Demo Page.</h1>
-  <p>This is where we’ll showcase our demo video, 3D models, and live features.</p>
 
-  <a href="index.html">⬅ Back to Home</a>
+<header>
+  <h1>Samriddha Drishti Demo</h1>
+  <p>Experience the vision of accessibility in action.</p>
+</header>
+
+<section>
+  <h2>3D Model of AI Glasses</h2>
+  <div class="model-container">
+<model-viewer src="glasses.glb" 
+              alt="3D Model" 
+              auto-rotate 
+              camera-controls 
+              ar 
+              ar-modes="webxr scene-viewer quick-look">
+</model-viewer>
+    </div>
+
+  <h2>3D Model of Smart Blind Stick</h2>
+  <div class="model-container">
+<model-viewer src="stick.glb" 
+              alt="3D Model" 
+              auto-rotate 
+              camera-controls 
+              ar 
+              ar-modes="webxr scene-viewer quick-look">
+</model-viewer>  </div>
+
+  <h2>Demo Video</h2>
+  <div class="video-container">
+    <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/Iu3f3VCvmN8" 
+        title="Samriddha Drishti Demo Video" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+</iframe>
+
+  </div>
+
+  <div style="text-align:center;">
+    <a href="index.html" class="button">Back to Home</a>
+  </div>
+</section>
+
 </body>
 </html>
