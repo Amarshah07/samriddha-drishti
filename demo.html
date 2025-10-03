@@ -10,31 +10,35 @@
       font-family: 'Outfit', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #f8fafc, #eef2f7);
+      background: linear-gradient(135deg, #f9fafb, #edf2f7);
       color: #1d3557;
+      line-height: 1.6;
     }
+
     header {
       background: linear-gradient(135deg, #0d1b2a, #1d3557);
       color: white;
-      padding: 60px 20px;
+      padding: 80px 20px;
       text-align: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 25px rgba(0,0,0,0.3);
     }
     header h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
+      font-size: 3.2rem;
+      margin-bottom: 12px;
     }
     header p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       opacity: 0.9;
     }
+
     section {
-      padding: 60px 20px;
+      padding: 70px 20px;
       max-width: 1200px;
       margin: auto;
     }
+
     h2 {
-      font-size: 2rem;
+      font-size: 2.2rem;
       margin-bottom: 20px;
       text-align: center;
       position: relative;
@@ -42,59 +46,87 @@
     h2::after {
       content: "";
       display: block;
-      width: 60px;
+      width: 70px;
       height: 3px;
       background: #457b9d;
-      margin: 10px auto;
+      margin: 12px auto;
       border-radius: 3px;
     }
+
+    /* Grid for cards */
     .grid {
       display: grid;
-      gap: 40px;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      align-items: start;
-      margin-bottom: 60px;
+      gap: 50px;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      align-items: stretch;
+      margin-bottom: 80px;
     }
+
+    /* Card style */
     .card {
-      background: white;
-      border-radius: 16px;
-      padding: 20px;
+      background: rgba(255,255,255,0.85);
+      border-radius: 20px;
+      padding: 25px;
       text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
     }
-    model-viewer, iframe {
+
+    /* Model Viewer */
+    model-viewer {
       width: 100%;
-      height: 400px;
+      height: 420px;
       border: none;
-      border-radius: 12px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+      border-radius: 16px;
+      background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+      box-shadow: inset 0 0 30px rgba(0,0,0,0.08);
     }
-    a.button {
+
+    /* YouTube embeds with lazy load */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Button */
+    .button {
       display: inline-block;
-      padding: 14px 32px;
+      padding: 16px 34px;
       background: #1d3557;
       color: white;
       text-decoration: none;
       border-radius: 50px;
-      margin-top: 30px;
       font-weight: 600;
-      transition: 0.3s;
+      transition: background 0.3s;
     }
-    a.button:hover {
+    .button:hover {
       background: #457b9d;
     }
+
     footer {
       background: #0d1b2a;
       color: #ddd;
       text-align: center;
-      padding: 30px;
-      margin-top: 50px;
-      font-size: 0.9rem;
+      padding: 35px;
+      margin-top: 60px;
+      font-size: 0.95rem;
     }
   </style>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
@@ -103,16 +135,16 @@
 
 <header>
   <h1>Samriddha Drishti – Demo Experience</h1>
-  <p>Empowering vision, independence, and accessibility through AI.</p>
+  <p>Experience how AI empowers independence and accessibility.</p>
 </header>
 
 <section>
-  <h2>3D Models</h2>
+  <h2>Prototypes</h2>
   <div class="grid">
     <div class="card">
-      <h3>Prototype Design</h3>
+      <h3>Prototype Glasses Design</h3>
       <model-viewer src="black_glasses.glb" 
-                    alt="3D Model of Glasses" 
+                    alt="3D Model of Smart Glasses" 
                     auto-rotate 
                     camera-controls 
                     ar 
@@ -120,34 +152,42 @@
       </model-viewer>
     </div>
     <div class="card">
-      <h3>Smart Blind Stick Prototype</h3>
+      <h3>Blind Stick Prototype</h3>
       <model-viewer src="newstick.glb" 
-                    alt="3D Model of Smart Blind Stick" 
-                    auto-rotate 
-                    camera-controls 
-                    ar 
-                    ar-modes="webxr scene-viewer quick-look">
-      </model-viewer>
+              alt="3D Model of Blind Stick" 
+              auto-rotate 
+              rotation-per-second="30deg" 
+              camera-controls 
+              ar 
+              ar-modes="webxr scene-viewer quick-look">
+</model-viewer>
+
     </div>
   </div>
 
-  <h2>Demo Videos</h2>
+  <h2>Live Demo Videos</h2>
   <div class="grid">
     <div class="card">
       <h3>Purpose</h3>
-      <iframe src="https://www.youtube.com/embed/Iu3f3VCvmN8" 
-              title="Samriddha Drishti Main Demo" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-      </iframe>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/Iu3f3VCvmN8?rel=0&modestbranding=1" 
+                title="Samriddha Drishti Main Demo"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+      </div>
     </div>
     <div class="card">
-      <h3>Prototype</h3>
-      <iframe src="https://www.youtube.com/embed/your-second-video-id" 
-              title="Samriddha Drishti Additional Demo" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-      </iframe>
+      <h3>Prototype in Action</h3>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/your-second-video-id?rel=0&modestbranding=1"
+                title="Samriddha Drishti Prototype Demo"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+      </div>
     </div>
   </div>
 
@@ -157,7 +197,7 @@
 </section>
 
 <footer>
-  <p>Samriddha Drishti – Designed to empower the visually impaired with AI-powered accessibility.</p>
+  <p>Samriddha Drishti – Empowering the visually impaired with AI-driven accessibility.</p>
 </footer>
 
 </body>
