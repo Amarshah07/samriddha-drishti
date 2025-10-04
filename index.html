@@ -6,6 +6,29 @@
   <meta name="description" content="Samriddha Drishti is an AI-powered wearable designed to empower visually impaired individuals by providing real-time scene descriptions, text reading, and navigation assistance." />
   <title>Samriddha Drishti – Empowering Vision Beyond Sight</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;700&display=swap">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#4F46E5",
+                        "background-light": "#F9FAFB",
+                        "background-dark": "#111827",
+                    },
+                    fontFamily: {
+                        display: ["Poppins", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
   <style>
     * {
       margin: 0;
@@ -21,31 +44,31 @@
     }
 
     /* Hero Section */
-    header {
-      background: linear-gradient(135deg, #0d1b2a, #16263e, #457b9d);
+     header {
+      background: linear-gradient(135deg, #0c1a29, #16263e, #1b3b4f);
       background-size: 300% 300%;
-      animation: gradientShift 10s ease infinite;
+      animation: gradientShift 20s ease infinite; /* slower */
       color: white;
       padding: 120px 20px;
       text-align: center;
     }
 
-    @keyframes gradientShift {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+   @keyframes gradientShift {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 50% 50%;}
+    100% {background-position: 0% 50%;}
     }
 
     header h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
+      font-size: 3.4rem;
+      font-weight: 600;
       letter-spacing: 1px;
       margin-bottom: 20px;
     }
 
     header p {
-      font-size: 1.4rem;
-      max-width: 800px;
+      font-size: 1rem;
+      max-width: 700px;
       margin: auto;
       line-height: 1.7;
       margin-bottom: 30px;
@@ -64,25 +87,17 @@
       transition: all 0.3s ease;
     }
 
-    .cta-buttons button:hover {
-      background: #457b9d;
+     .cta-buttons button:hover {
+      background: #2b7db0;
       transform: translateY(-3px) scale(1.05);
       box-shadow: 0 6px 20px rgba(0,0,0,0.25);
     }
-
     /* Sections */
     section {
       padding: 70px 20px;
       max-width: 1100px;
       margin: auto;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
+    
     }
 
     section h2 {
@@ -108,7 +123,6 @@
     }
 
     .feature:hover {
-      transform: translateY(-8px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
@@ -169,37 +183,13 @@
 }
 
 .gallery-grid img:hover {
-  transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-.steps {
-  display: grid;
-  gap: 25px;
-  max-width: 800px;
-  margin: 40px auto;
+#how-it-works {
+  padding: 70px 20px;
+  background: #f9f9f9;
 }
-
-.step {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  background: #fff;
-  padding: 18px 20px;
-  border-radius: 12px;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.step:hover {
-  transform: translateY(-5px);
-}
-
-.step span {
-  font-size: 1.8rem;
-  flex-shrink: 0;
-}
-
 
     /* Footer */
     footer {
@@ -224,6 +214,11 @@
     .team {
       margin-top: 20px;
     }
+
+    .material-icons {
+            font-size: 36px;
+            line-height: 1;
+        }
   </style>
 </head>
 <body>
@@ -299,36 +294,72 @@
     </div>
   </section>
 
-  <!-- How it Works -->
   <!-- How It Works -->
-<section>
-  <h2>How It Works</h2>
-  <div class="steps">
-    <div class="step">
-      <span>👓</span>
-      <p>Wear the smart glasses with camera, mic & speaker.</p>
-    </div>
-    <div class="step">
-      <span>🦯</span>
-      <p>Carry the smart blind stick with sensors & vibration alerts.</p>
-    </div>
-    <div class="step">
-      <span>🎙️</span>
-      <p>Use voice commands like “Describe”, “Read text” or “Find bottle”.</p>
-    </div>
-    <div class="step">
-      <span>🖼️</span>
-      <p>Glasses provide scene description, text & face/QR recognition.</p>
-    </div>
-    <div class="step">
-      <span>⚡</span>
-      <p>Stick ensures safe mobility with obstacle detection + SOS alerts.</p>
-    </div>
-    <div class="step">
-      <span>🌍</span>
-      <p>Together, they empower independent navigation & interaction.</p>
-    </div>
-  </div>
+<section id="how-it-works">
+  <div class="container mx-auto px-4 py-16 sm:py-24">
+<div class="text-center max-w-3xl mx-auto">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">How Samriddha Drishti Works</h2>
+<p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+                Samriddha Drishti is a seamless integration of smart glasses and a smart blind stick. Together, they empower visually impaired individuals to navigate independently, interact confidently, and understand their surroundings — all in real time.
+            </p>
+</div>
+<div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+<div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+<div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 dark:bg-primary/20 text-primary mb-6">
+<span class="material-icons">glasses</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Step 1 – Wear &amp; Connect</h3>
+<p class="text-gray-600 dark:text-gray-400">
+                    Put on the smart glasses and power on the smart blind stick. Both devices connect to the Samriddha Drishti mobile app, which acts as the central processing hub. This forms a unified assistive ecosystem.
+                </p>
+</div>
+<div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+<div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 dark:bg-primary/20 text-primary mb-6">
+<span class="material-icons">mic</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Step 2 – Voice Command & Touch Interaction</h3>
+<p class="text-gray-600 dark:text-gray-400">
+                    Speak naturally or press the button to control the system. Commands like “Describe surroundings”, “Read text”, or “Locate object” trigger instant AI responses.
+                </p>
+</div>
+<div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+<div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 dark:bg-primary/20 text-primary mb-6">
+<span class="material-icons">image_search</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Step 3 – Scene Understanding</h3>
+<p class="text-gray-600 dark:text-gray-400">
+                    The smart glasses capture live video and process it using advanced AI. You receive real-time Navigation Assistance ,scene descriptions and object recognition via audio & haptic feedback.
+                </p>
+</div>
+<div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+<div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 dark:bg-primary/20 text-primary mb-6">
+<span class="material-icons">receipt_long</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Step 4 – Text Reading</h3>
+<p class="text-gray-600 dark:text-gray-400">
+                    Simply point the camera at any text — documents, signs, or menus — and Samriddha Drishti reads it aloud instantly using high-accuracy OCR technology.
+                </p>
+</div>
+<div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+<div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 dark:bg-primary/20 text-primary mb-6">
+<span class="material-icons" style="transform: rotate(135deg);">moving</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Step 5 – Obstacle Detection</h3>
+<p class="text-gray-600 dark:text-gray-400">
+                    The smart blind stick detects obstacles through ultrasonic and infrared sensors. It vibrates or issues alerts to keep you safe while navigating.
+                </p>
+</div>
+<div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+<div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 dark:bg-primary/20 text-primary mb-6">
+<span class="material-icons">public</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Step 6 – Freedom &amp; Confidence</h3>
+<p class="text-gray-600 dark:text-gray-400">
+                    Together, the smart glasses and blind stick provide a powerful assistive ecosystem — enabling users to move with independence, awareness, and confidence.
+                </p>
+</div>
+</div>
+</div>
 </section>
 
 
@@ -361,10 +392,7 @@
   <!-- Mission -->
   <section>
     <h2>Our Mission</h2>
-    <div class="mission-highlight">
-      "Accessibility is not a privilege—it’s a human right.  
-      Samriddha Drishti is not just technology, it’s freedom in every step."
-    </div>
+    
     <p>
       <strong>Samriddha Drishti</strong> envisions a world where visual impairment is no barrier to independence, safety, and opportunity.  
       By merging AI, real-time processing, and intuitive design, we aim to empower millions of visually impaired individuals to navigate their world with confidence and dignity.  
@@ -408,13 +436,7 @@
 
   <!-- JS for Section Animation + Lightbox -->
   <script>
-    const sections = document.querySelectorAll("section");
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) entry.target.classList.add("visible");
-      });
-    }, {threshold: 0.2});
-    sections.forEach(sec => observer.observe(sec));
+    
 
     document.addEventListener("click", e => {
       if(e.target.tagName === "IMG" && e.target.closest(".gallery-grid")) {
