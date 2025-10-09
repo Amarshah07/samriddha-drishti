@@ -7,8 +7,10 @@
   <title>Samriddha Drishti – Empowering Vision Beyond Sight</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;700&display=swap">
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <link rel="preload" as="image" href="Untitled-1.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <script src="https://www.youtube.com/iframe_api"></script>
   <script>
         tailwind.config = {
             darkMode: "class",
@@ -195,6 +197,8 @@
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
+
+
 #how-it-works {
   padding: 70px 20px;
   background: #f9f9f9;
@@ -228,6 +232,49 @@
             font-size: 36px;
             line-height: 1;
         }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      background: #000;
+      border-radius: 0.75rem;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      cursor: pointer;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .play-button:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+    .video-container.playing .play-button {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Subtle animation for video sections */
+    .video-wrapper {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .video-wrapper:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
   </style>
 </head>
 <body>
@@ -240,7 +287,7 @@
       <a href="demo.html" style="text-decoration: none;">
         <button>Try the Demo</button>
       </a>
-      <a href="https://drive.google.com/file/d/1uzfWTomwZLZTqCdGvTn17azaWrsyWKkc/view?usp=sharing" target="_blank" style="text-decoration: none;">
+      <a href="https://drive.google.com/file/d/1pCA53LuT1NhUZBLD1EjObKkyFQwVL6Iq/view?usp=sharing" target="_blank" style="text-decoration: none;">
         <button>Documentation</button>
       </a>
     </div>
@@ -252,28 +299,104 @@
     <p><strong>Samriddha Drishti</strong> is an AI-powered assistive ecosystem combining smart glasses and a smart blind stick prototype. Together, they provide scene understanding, navigation support, obstacle detection, and real-time audio feedback for the visually impaired.</p>
   </section>
 
-  <!-- Gallery -->
-  <section id="gallery">
-    <h2>Project Gallery</h2>
-    <p>Explore our prototypes, real-world tests, and development journey.</p>
-    <div class="gallery-grid">
-      <img src="blindstick1.png" alt="Prototype Test">
-      <img src="team.jpg" alt="Prototype Test">
-      <img src="ritesh.jpg" alt="Demo Presentation">
-      <img src="g2.jpg" alt="Hardware Assembly">
-      <img src="t2.jpg" alt="Team Collaboration">
-      <img src="st.png" alt="Team Collaboration">
-      <img src="ln.png" alt="Team Collaboration">
-      <img src="g1.jpg" alt="Award Ceremony">
-      <img src="nepal.jpg" alt="Team Collaboration">
-      <img src="img1.jpg" alt="Team Collaboration">
-      <img src="award.webp" alt="User Experience">
-      <img src="s4.png" alt="Team Collaboration">
+  <!-- Intro Video -->
+  <section class="mb-0">
+    <div class="container mx-auto px-4 py-8 sm:py-12">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left: Description -->
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Introducing <span class="text-primary">Samriddha Drishti</span>
+          </h2>
+          <p class="text-gray-600 dark:text-gray-400 mb-6 text-base sm:text-lg leading-relaxed">
+            Discover how our innovative AI-powered ecosystem combines smart glasses and an assistive stick to deliver real-time support, empowering visually impaired individuals with greater independence and confidence in their daily lives.
+          </p>
+          <a href="#features" class="inline-block bg-primary text-white font-medium py-3 px-8 rounded-lg shadow-md hover:bg-indigo-600 transition duration-300 ease-in-out transform hover:-translate-y-1">
+            Explore Features
+          </a>
+        </div>
+
+        <!-- Right: Video -->
+<div class="relative rounded-lg shadow-2xl overflow-hidden video-wrapper order-first lg:order-last" id="intro-video-wrapper">
+  <div class="video-container" id="intro-video-container">
+    <img 
+      alt="Introduction to Samriddha Drishti AI assistive technology"
+      class="w-full h-full object-cover absolute inset-0"
+      id="intro-video-thumbnail"
+      src="Untitled-1.jpg"
+      loading="lazy"
+    />
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="play-button" id="intro-play-button">
+      <div class="bg-primary rounded-full w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center shadow-lg">
+        <span class="material-icons text-white text-4xl sm:text-5xl">play_arrow</span>
+      </div>
+    </div>
+    <div id="intro-player" class="absolute inset-0 hidden"></div>
+  </div>
+</div>
+
+<script>
+  document.getElementById("intro-play-button").addEventListener("click", function() {
+    const container = document.getElementById("intro-video-container");
+    container.innerHTML = `
+      <iframe
+        src="https://www.youtube.com/embed/Ql-nWCRNzLc?autoplay=1&mute=0&rel=0&modestbranding=1"
+        title="Samriddha Drishti Intro Video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        class="absolute inset-0 w-full h-full rounded-lg"
+      ></iframe>`;
+  });
+</script>
+
+
+      </div>
     </div>
   </section>
 
+<!-- Gallery -->
+<section id="gallery" class="py-16 bg-gray-50 dark:bg-gray-900">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-3">
+      Project <span class="text-primary">Gallery</span>
+    </h2>
+    <p class="text-gray-600 dark:text-gray-400 mb-10 text-base sm:text-lg">
+      Explore our prototypes, real-world tests, and development journey.
+    </p>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 gallery-grid">
+      <img src="https://i.ibb.co/spfxScgQ/blindstick.webp" alt="Prototype Test" fetchpriority="high" loading="eager" decoding="async" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300 ease-out">
+
+      <img src="https://i.ibb.co/LDYMTTVg/team.webp" alt="Prototype Test"  decoding="async" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300 ease-out">
+
+      <img src="https://i.ibb.co/Lz9KsJTB/ritesh.webp" alt="Demo Presentation"  decoding="async" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300 ease-out">
+
+      <img src="https://i.ibb.co/N634R31m/g2.webp" alt="Hardware Assembly"  decoding="async" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300 ease-out">
+
+      <img src="https://i.ibb.co/Pz3Fsnj7/t2.webp" alt="Team Collaboration"  decoding="async" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300 ease-out">
+
+      <img src="https://i.ibb.co/7JfFdq0c/st.webp" alt="Team Collaboration"  decoding="async" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300 ease-out">
+
+      <img src="https://i.ibb.co/7xw2hZZ1/ln.webp" alt="Team Collaboration"  decoding="async" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300 ease-out">
+
+      <img src="https://i.ibb.co/9kbsZ5hy/g1.webp" alt="Award Ceremony" decoding="async" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300 ease-out">
+
+      <img src="https://i.ibb.co/1GHYFzK4/nepal.webp" alt="Team Collaboration" decoding="async" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300 ease-out">
+
+      <img src="https://i.ibb.co/Mk2v4k8X/img1.webp" alt="Team Collaboration"  decoding="async" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300 ease-out">
+
+      <img src="https://i.ibb.co/8LKnzBTv/award.webp" alt="User Experience"  decoding="async" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300 ease-out">
+
+      <img src="https://i.ibb.co/208dhTBH/s4.webp" alt="Team Collaboration"  decoding="async" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300 ease-out">
+    </div>
+  </div>
+</section>
+
+
   <!-- Features -->
-  <section>
+  <section id="features">
     <h2>Key Features</h2>
     <div class="features-grid">
       <div class="feature">
@@ -281,12 +404,12 @@
         <p>Detects ground level obstacles with ultrasonic and infrared sensors, vibration alerts, and SOS support. Works standalone or in sync with Samriddha Drishti glasses.</p>
       </div>
       <div class="feature">
-        <h3>🖼️ Scene Description</h3>
-        <p>Get real-time visual descriptions using Gemini Vision AI, both indoors and outdoors.</p>
+        <h3>🌍 Multilingual Voice Support</h3>
+        <p>Supports major Indian languages like Hindi, Tamil, and Bengali — ensuring accessibility for everyone.</p>
       </div>
       <div class="feature">
-        <h3>❓ Visual Question Answering</h3>
-        <p>Ask “What is in front of me?” and get instant, accurate answers using Google Gemini.</p>
+        <h3>🧠 Scene Understanding & Visual Q&A</h3>
+        <p>Experience real-time scene descriptions and instant answers to visual questions using computer Vision AI — helping users perceive and understand their surroundings effortlessly, indoors or outdoors.</p>
       </div>
       <div class="feature">
         <h3>🧾 Text Reading (OCR)</h3>
@@ -399,7 +522,7 @@
   </section>
 
   <!-- Mission -->
-  <section>
+  <section >
     <h2>Our Mission</h2>
     
     <p>
@@ -407,6 +530,50 @@
       By merging AI, real-time processing, and intuitive design, we aim to empower millions of visually impaired individuals to navigate their world with confidence and dignity.  
       Our mission is to build India’s first truly integrated accessibility ecosystem—a fusion of smart glasses and smart blind stick technology—bringing freedom and connection to every step they take.
     </p>
+  </section>
+
+  <!-- Demo Video -->
+  <section class="mb-0">
+    <div class="container mx-auto px-4 py-8 sm:py-12">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left: Video -->
+        <div class="relative rounded-lg shadow-2xl overflow-hidden video-wrapper" id="video-wrapper">
+          <div class="video-container" id="video-container">
+            <img 
+              alt="Visually impaired person using AI-powered smart glasses"
+              class="w-full h-full object-cover absolute inset-0"
+              id="video-thumbnail"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBVmHJIJgrRwnbkISIR1w8qU9CCAMvz8TQ_lWNhZPiefk_HQc-Q-HzMntoTJkn9j8R6IeuQAQu-74FdpZAIrXuuWI5sVQpdJkj3I6jhuQfL3SfgLUOH9hChsA2paALhAXiFEL4PIXmITdD2jmQp-zZkPv-m7Cy0Faz9kff9kZkcM6Hrrh7zjBrvq_47_96WyBCEQj8tHTo87xkbX_1lxNaF4HsohkGUoCkvSjtZqrDA4xVDEZjzNJHlY9HLZhf9MlHjKf2DlVTj_4"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+            <div class="play-button" id="play-button">
+              <div class="bg-primary rounded-full w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center shadow-lg">
+                <span class="material-icons text-white text-4xl sm:text-5xl">play_arrow</span>
+              </div>
+            </div>
+            <div id="demo-player" class="absolute inset-0 hidden"></div>
+          </div>
+        </div>
+
+        <!-- Right: Description -->
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Vision Behind<span class="text-primary">Samriddha Drishti</span>
+          </h2>
+          <p class="text-gray-600 dark:text-gray-400 mb-6 text-base sm:text-lg leading-relaxed">
+            Samriddha Drishti is an AI-powered vision assistant designed to empower the visually impaired with independence and confidence. 
+            Through smart assistive technology, it transforms everyday challenges into seamless experiences — enabling users to perceive, navigate, 
+            and interact with their surroundings effortlessly.
+          </p>
+          <a href="https://forms.gle/mjUsKivZ7A4KpNsbA" target="_blank" class="inline-block bg-primary text-white font-medium py-3 px-8 rounded-lg shadow-md hover:bg-indigo-600 transition duration-300 ease-in-out transform hover:-translate-y-1">
+            Get in touch
+          </a>
+        </div>
+
+      </div>
+    </div>
   </section>
 
   <!-- Join Us -->
@@ -466,8 +633,101 @@
         document.body.appendChild(overlay);
       }
     });
+
+    let demoPlayer;
+    let introPlayer;
+
+    // Demo Video Script
+    const playButton = document.getElementById('play-button');
+    const videoWrapper = document.getElementById('video-wrapper');
+    const videoThumbnail = document.getElementById('video-thumbnail');
+    const videoContainer = document.getElementById('video-container');
+
+    playButton.addEventListener('click', () => {
+      videoWrapper.classList.add('playing');
+      videoThumbnail.style.display = 'none';
+      playButton.style.display = 'none';
+      videoContainer.querySelector('.bg-black').style.display = 'none';
+      const playerDiv = document.getElementById('demo-player');
+      playerDiv.classList.remove('hidden');
+
+      if (!demoPlayer) {
+        demoPlayer = new YT.Player('demo-player', {
+          height: '100%',
+          width: '100%',
+          videoId: 'Iu3f3VCvmN8',
+          playerVars: {
+            'playsinline': 1,
+            'autoplay': 0,
+            'controls': 1,
+            'rel': 0,
+            'modestbranding': 1,
+            'showinfo': 0
+          },
+          events: {
+            'onReady': function(event) {
+              event.target.playVideo();
+            },
+            'onStateChange': function(event) {
+              if (event.data == YT.PlayerState.PLAYING) {
+                // Optional: Add any logic when playing
+              }
+            }
+          }
+        });
+      } else {
+        demoPlayer.playVideo();
+      }
+    });
+
+    // Intro Video Script
+    const introPlayButton = document.getElementById('intro-play-button');
+    const introVideoWrapper = document.getElementById('intro-video-wrapper');
+    const introVideoThumbnail = document.getElementById('intro-video-thumbnail');
+    const introVideoContainer = document.getElementById('intro-video-container');
+
+    introPlayButton.addEventListener('click', () => {
+      introVideoWrapper.classList.add('playing');
+      introVideoThumbnail.style.display = 'none';
+      introPlayButton.style.display = 'none';
+      introVideoContainer.querySelector('.bg-black').style.display = 'none';
+      const introPlayerDiv = document.getElementById('intro-player');
+      introPlayerDiv.classList.remove('hidden');
+
+      if (!introPlayer) {
+        introPlayer = new YT.Player('intro-player', {
+          height: '100%',
+          width: '100%',
+          videoId: '5raHFE58RpA',
+          playerVars: {
+            'playsinline': 1,
+            'autoplay': 0,
+            'controls': 1,
+            'rel': 0,
+            'modestbranding': 1,
+            'showinfo': 0
+          },
+          events: {
+            'onReady': function(event) {
+              event.target.playVideo();
+            },
+            'onStateChange': function(event) {
+              if (event.data == YT.PlayerState.PLAYING) {
+                // Optional: Add any logic when playing
+              }
+            }
+          }
+        });
+      } else {
+        introPlayer.playVideo();
+      }
+    });
+
+    // YouTube API Ready (optional, for any global setup)
+    function onYouTubeIframeAPIReady() {
+      // API is ready, players will be created on demand
+    }
   </script>
 
 </body>
 </html>
-
